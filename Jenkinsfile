@@ -10,12 +10,15 @@ pipeline {
 
         stage ('Upload') {
             steps {
-                rtUpload (
-                    buildName: 'MK',
-                    buildNumber: '48',
-                    serverId: 'Artifactory', // Obtain an Artifactory server instance, defined in Jenkins --> Manage:
-                    specPath: 'jenkins-examples/pipeline-examples/resources/props-upload.json'
-                )
+             //   rtUpload (
+             //       buildName: 'MK',
+             //       buildNumber: '48',
+             //       serverId: 'Artifactory', // Obtain an Artifactory server instance, defined in Jenkins --> Manage:
+             //       specPath: 'jenkins-examples/pipeline-examples/resources/props-upload.json'
+            //    )
+                
+        rtUpload(serverId: 'Artifactory', specPath: 'jenkins-examples/pipeline-examples/resources/props-upload.json')
+        rtPublishBuildInfo(serverId: 'Artifactory')
             }
         }
 
