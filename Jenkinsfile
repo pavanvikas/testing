@@ -13,7 +13,7 @@ pipeline {
                 rtUpload (
                     buildName: 'MK',
                     buildNumber: '48',
-                    serverId: 'Artifactory', // Obtain an Artifactory server instance, defined in Jenkins --> Manage:
+                    serverId: 'art', // Obtain an Artifactory server instance, defined in Jenkins --> Manage:
                     specPath: 'jenkins-examples/pipeline-examples/resources/props-upload.json'
                 )
             }
@@ -24,7 +24,7 @@ pipeline {
                 rtDownload (
                     buildName: 'MK',
                     buildNumber: '48',
-                    serverId: 'Artifactory',
+                    serverId: 'art',
                     specPath: 'jenkins-examples/pipeline-examples/resources/props-download.json'
                 )
             }
@@ -35,7 +35,7 @@ pipeline {
                 rtPublishBuildInfo (
                     buildName: 'MK',
                     buildNumber: '48',
-                    serverId: 'Artifactory'
+                    serverId: 'art'
                 )
             }
         }
@@ -44,7 +44,7 @@ pipeline {
             steps {
                 rtPromote (
                     //Mandatory parameter
-                    serverId: 'Artifactory',
+                    serverId: 'art',
                     targetRepo: 'libs-release-local',
 
                     //Optional parameters
