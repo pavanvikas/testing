@@ -24,12 +24,15 @@ pipeline {
 
         stage ('Download') {
             steps {
-                rtDownload (
-                    buildName: 'MK',
-                    buildNumber: '48',
-                    serverId: 'Artifactory',
-                    specPath: 'jenkins-examples/pipeline-examples/resources/props-download.json'
-                )
+                // rtDownload (
+                //    buildName: 'MK',
+                //    buildNumber: '48',
+                //    serverId: 'Artifactory',
+                //    specPath: 'jenkins-examples/pipeline-examples/resources/props-download.json'
+               // )
+         rtDownload(serverId: 'Artifactory', specPath: 'jenkins-examples/pipeline-examples/resources/props-download.json')  
+
+            
             }
         }
 
